@@ -16,6 +16,7 @@
 
 services:
   cap-web:
+    platform: linux/amd64
     container_name: cap-web
     image: 'ghcr.io/capsoftware/cap-web:latest'
     restart: unless-stopped
@@ -42,6 +43,7 @@ services:
         condition: service_healthy
         
   cap-db:
+    platform: linux/amd64
     container_name: cap-db
     image: 'mysql:8.0'
     restart: unless-stopped
@@ -67,6 +69,7 @@ services:
     volumes:
       - 'cap_db:/var/lib/mysql'
   cap-s3:
+    platform: linux/amd64
     container_name: cap-s3
     image: 'bitnami/minio:latest'
     restart: unless-stopped
